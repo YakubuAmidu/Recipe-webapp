@@ -1,16 +1,3 @@
-import { elements } from './base';
-import { Fraction } from 'fractional';
-
-export const clearRecipe = () => {
-  elements.recipe.innerHTML = ' ';
-};
-
-const formatCount = count => {
- if (count) {
- // newCount = 2.5 --> 2 1/2
- // newCount = 0.5 --> 1/2
- const newCount = Math.round(count * 1000) / 1000;
- const [int, dec] = newCount.toString().split('.').map(el => parseInt(el, 10));
 
  if (!dec) return newCount;
 
