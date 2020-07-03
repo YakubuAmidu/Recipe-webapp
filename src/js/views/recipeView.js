@@ -74,11 +74,43 @@ export const renderRecipe = (recipe, isLiked) => {
                   </svg>
               </button>
           </div>
+          </div>
+          <button class="recipe__love">
+              <svg class="header__likes">
+                  <use href="img/icons.svg#icon-heart${isLiked ? ' ' : '-outlined'}"></use>
+              </svg>
+          </button>
+          </div>
 
-      
+          <div class="recipe__ingredients">
+          <ul class="recipe__ingredient-list">
+          ${recipe.ingredients.map(el => createIngredient(el)).join('')}
+          </ul>
+
+          <button class="btn-small recipe__btn recipe__btn--add">
+              <svg class="search__icon">
+                  <use href="img/icons.svg#icon-shopping-cart"></use>
+              </svg>
+              <span>Add to shopping list</span>
+          </button>
+          </div>
+
+          <div class="recipe__directions">
+          <h2 class="heading-2">How to cook it</h2>
+          <p class="recipe__directions-text">
+              This recipe was carefully designed and tested by
+              <span class="recipe__by">${recipe.author}</span>. Please check out directions at their website.
+          </p>
+          <a class="btn-small recipe__btn" href="${recipe.url}" target="_blank">
+              <span>Directions</span>
+              <svg class="search__icon">
+                  <use href="img/icons.svg#icon-triangle-right"></use>
+              </svg>
       </a>
   </div>
   `;
+
+
   elements.recipe.insertAdjacentHTML('afterbegin', markup);
 };
 
