@@ -12,32 +12,7 @@ const formatCount = count => {
  const newCount = Math.round(count * 1000) / 1000;
  const [int, dec] = newCount.toString().split('.').map(el => parseInt(el, 10));
 
- if (!dec) return newCount;
-
- if (int === 0) {
-   const fr = new Fraction(newCount);
-   return `${fr.numerator}/${fr.denominator}`;
- } else {
-    const fr = new Fraction(newCount - int);
-    return `${int} ${fr.numerator}/${fr.denominator}`;
- }
- }
- return '?';
-};
-
-const createIngredient = ingredient => `
-<li class="recipe__item">
-    <svg class="recipe__icon">
-        <use href="img/icons.svg#icon-check"></use>
-    </svg>
-    <div class="recipe__count">${formatCount(ingredient.count)}</div>
-    <div class="recipe__ingredient">
-        <span class="recipe__unit">${ingredient.unit}</span>
-       ${ingredient.ingredient}
-    </div>
-</li>
-`;
-
+ 
 export const renderRecipe = (recipe, isLiked) => {
   const markup = `
   <figure class="recipe__fig">
